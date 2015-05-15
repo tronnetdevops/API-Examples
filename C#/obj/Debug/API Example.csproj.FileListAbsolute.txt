@@ -8,3 +8,9 @@ C:\IIS\wwwroot\APIProjects\API-Examples\C#\bin\API Example.pdb
 C:\IIS\wwwroot\APIProjects\API-Examples\C#\obj\Debug\API Example.csprojResolveAssemblyReference.cache
 C:\IIS\wwwroot\APIProjects\API-Examples\C#\obj\Debug\API Example.dll
 C:\IIS\wwwroot\APIProjects\API-Examples\C#\obj\Debug\API Example.pdb
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\bin\API Example.dll.config
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\bin\API Example.dll
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\bin\API Example.pdb
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\obj\Debug\API Example.csprojResolveAssemblyReference.cache
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\obj\Debug\API Example.dll
+C:\Users\joe.vacovsky\Source\Repos\API-Examples\C#\obj\Debug\API Example.pdb

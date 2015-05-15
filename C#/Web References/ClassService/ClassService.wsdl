@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://clients.mindbodyonline.com/api/0_5" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://clients.mindbodyonline.com/api/0_5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://clients.mindbodyonline.com/api/0_5" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://clients.mindbodyonline.com/api/0_5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides methods and attributes relating to classes and enrollments.</wsdl:documentation>
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://clients.mindbodyonline.com/api/0_5">
@@ -95,6 +95,7 @@
       <s:complexType name="MBResult">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusCode" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="XMLDetail" type="tns:XMLDetailLevel" />
           <s:element minOccurs="1" maxOccurs="1" name="ResultCount" type="s:int" />
@@ -129,6 +130,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="MaxCapacity" nillable="true" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="WebCapacity" nillable="true" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="TotalBooked" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="TotalBookedWaitlist" nillable="true" type="s:int" />
               <s:element minOccurs="1" maxOccurs="1" name="WebBooked" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="SemesterID" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="IsCanceled" type="s:boolean" />
@@ -136,6 +138,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="Active" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="IsWaitlistAvailable" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="IsEnrolled" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="HideCancel" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="IsAvailable" nillable="true" type="s:boolean" />
@@ -152,6 +155,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Site" type="tns:Site" />
           <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
           <s:element minOccurs="0" maxOccurs="1" name="Execute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Site">
@@ -169,6 +173,9 @@
           <s:element minOccurs="0" maxOccurs="1" name="AcceptsMasterCard" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="AcceptsAmericanExpress" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="ContactEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESA" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalWOD" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxInclusivePrices" nillable="true" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="ClassDescription">
@@ -186,6 +193,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="LastUpdated" nillable="true" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="Program" type="tns:Program" />
               <s:element minOccurs="0" maxOccurs="1" name="SessionType" type="tns:SessionType" />
+              <s:element minOccurs="0" maxOccurs="1" name="Active" type="s:boolean" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -213,6 +221,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="ScheduleType" nillable="true" type="tns:ScheduleType" />
+              <s:element minOccurs="1" maxOccurs="1" name="CancelOffset" nillable="true" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -232,6 +241,9 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:MBObject">
             <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DefaultTimeLength" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProgramID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumDeducted" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
@@ -296,6 +308,9 @@
               <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="ForeignZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SortOrder" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginLocations" type="tns:ArrayOfLocation" />
+              <s:element minOccurs="0" maxOccurs="1" name="MultiLocation" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:long" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
@@ -317,6 +332,8 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:ScheduleItem">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="GenderPreference" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Duration" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:long" />
               <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:AppointmentStatus" />
@@ -437,9 +454,16 @@
               <s:element minOccurs="0" maxOccurs="1" name="AppointmentGenderPreference" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="IsCompany" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inactive" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="ClientRelationships" type="tns:ArrayOfClientRelationship" />
               <s:element minOccurs="0" maxOccurs="1" name="Reps" type="tns:ArrayOfRep" />
               <s:element minOccurs="0" maxOccurs="1" name="CustomClientFields" type="tns:ArrayOfCustomClientField" />
+              <s:element minOccurs="0" maxOccurs="1" name="LiabilityRelease" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoRelationship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PromotionalEmailOptIn" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
@@ -572,12 +596,21 @@
           <s:element minOccurs="0" maxOccurs="unbounded" name="Availability" nillable="true" type="tns:Availability" />
         </s:sequence>
       </s:complexType>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="Visit">
         <s:complexContent mixed="false">
           <s:extension base="tns:MBObject">
             <s:sequence>
               <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:long" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClassID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppointmentID" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="AppointmentGenderPreference" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="StartDateTime" type="s:dateTime" />
+              <s:element minOccurs="0" maxOccurs="1" name="LateCancelled" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="EndDateTime" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Staff" type="tns:Staff" />
@@ -585,7 +618,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="Client" type="tns:Client" />
               <s:element minOccurs="0" maxOccurs="1" name="WebSignup" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
-              <s:element minOccurs="0" maxOccurs="1" name="SignedIn" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="SignedIn" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="MakeUp" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Service" type="tns:ClientService" />
             </s:sequence>
@@ -774,6 +807,8 @@
               <s:element minOccurs="0" maxOccurs="1" name="DayThursday" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="DayFriday" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="DaySaturday" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="AllowOpenEnrollment" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="AllowDateForwardEnrollment" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="StartTime" nillable="true" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="EndTime" nillable="true" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
@@ -852,6 +887,8 @@
               <s:element minOccurs="1" maxOccurs="1" name="Test" nillable="true" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="RequirePayment" nillable="true" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="Waitlist" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendEmail" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="WaitlistEntryID" nillable="true" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -925,7 +962,9 @@
               <s:element minOccurs="1" maxOccurs="1" name="EnrollDateForward" nillable="true" type="s:dateTime" />
               <s:element minOccurs="0" maxOccurs="1" name="EnrollOpen" type="tns:ArrayOfDateTime" />
               <s:element minOccurs="1" maxOccurs="1" name="Test" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendEmail" nillable="true" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="Waitlist" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="WaitlistEntryID" nillable="true" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -1086,6 +1125,8 @@
               <s:element minOccurs="0" maxOccurs="1" name="ClassScheduleIDs" type="tns:ArrayOfInt" />
               <s:element minOccurs="0" maxOccurs="1" name="ClientIDs" type="tns:ArrayOfString" />
               <s:element minOccurs="0" maxOccurs="1" name="WaitlistEntryIDs" type="tns:ArrayOfInt" />
+              <s:element minOccurs="0" maxOccurs="1" name="ClassIDs" type="tns:ArrayOfInt" />
+              <s:element minOccurs="1" maxOccurs="1" name="HidePastEntries" nillable="true" type="s:boolean" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -1114,12 +1155,87 @@
       <s:complexType name="WaitlistEntry">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:long" />
+          <s:element minOccurs="1" maxOccurs="1" name="ClassDate" nillable="true" type="s:dateTime" />
           <s:element minOccurs="0" maxOccurs="1" name="Client" type="tns:Client" />
           <s:element minOccurs="0" maxOccurs="1" name="ClassSchedule" type="tns:ClassSchedule" />
           <s:element minOccurs="1" maxOccurs="1" name="EnrollmentDateForward" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="RequestDateTime" type="s:dateTime" />
           <s:element minOccurs="1" maxOccurs="1" name="Web" type="s:boolean" />
+          <s:element minOccurs="1" maxOccurs="1" name="VisitRefNo" type="s:int" />
         </s:sequence>
+      </s:complexType>
+      <s:element name="SubtituteClassTeacher">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Request" type="tns:SubstituteClassTeacherRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubstituteClassTeacherRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MBRequest">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="StaffID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="OverrideConflicts" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendClientEmail" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendOldStaffEmail" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendNewStaffEmail" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="SubtituteClassTeacherResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SubtituteClassTeacherResult" type="tns:SubstituteClassTeacherResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SubstituteClassTeacherResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MBResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Class" type="tns:Class" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CancelSingleClass">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Request" type="tns:CancelSingleClassRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelSingleClassRequest">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MBRequest">
+            <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="ClassID" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="HideCancel" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendClientEmail" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="SendStaffEmail" type="s:boolean" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
+      </s:complexType>
+      <s:element name="CancelSingleClassResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CancelSingleClassResult" type="tns:CancelSingleClassResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="CancelSingleClassResult">
+        <s:complexContent mixed="false">
+          <s:extension base="tns:MBResult">
+            <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="Class" type="tns:Class" />
+            </s:sequence>
+          </s:extension>
+        </s:complexContent>
       </s:complexType>
     </s:schema>
   </wsdl:types>
@@ -1201,6 +1317,18 @@
   <wsdl:message name="GetWaitlistEntriesSoapOut">
     <wsdl:part name="parameters" element="tns:GetWaitlistEntriesResponse" />
   </wsdl:message>
+  <wsdl:message name="SubtituteClassTeacherSoapIn">
+    <wsdl:part name="parameters" element="tns:SubtituteClassTeacher" />
+  </wsdl:message>
+  <wsdl:message name="SubtituteClassTeacherSoapOut">
+    <wsdl:part name="parameters" element="tns:SubtituteClassTeacherResponse" />
+  </wsdl:message>
+  <wsdl:message name="CancelSingleClassSoapIn">
+    <wsdl:part name="parameters" element="tns:CancelSingleClass" />
+  </wsdl:message>
+  <wsdl:message name="CancelSingleClassSoapOut">
+    <wsdl:part name="parameters" element="tns:CancelSingleClassResponse" />
+  </wsdl:message>
   <wsdl:portType name="Class_x0020_ServiceSoap">
     <wsdl:operation name="GetClasses">
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of classes.</wsdl:documentation>
@@ -1266,6 +1394,16 @@
       <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Get waitlist entries.</wsdl:documentation>
       <wsdl:input message="tns:GetWaitlistEntriesSoapIn" />
       <wsdl:output message="tns:GetWaitlistEntriesSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="SubtituteClassTeacher">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Substitutes the teacher for a class.</wsdl:documentation>
+      <wsdl:input message="tns:SubtituteClassTeacherSoapIn" />
+      <wsdl:output message="tns:SubtituteClassTeacherSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CancelSingleClass">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Cancels a single class instance.</wsdl:documentation>
+      <wsdl:input message="tns:CancelSingleClassSoapIn" />
+      <wsdl:output message="tns:CancelSingleClassSoapOut" />
     </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="Class_x0020_ServiceSoap" type="tns:Class_x0020_ServiceSoap">
@@ -1387,11 +1525,29 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SubtituteClassTeacher">
+      <soap:operation soapAction="http://clients.mindbodyonline.com/api/0_5/SubtituteClassTeacher" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CancelSingleClass">
+      <soap:operation soapAction="http://clients.mindbodyonline.com/api/0_5/CancelSingleClass" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:service name="Class_x0020_Service">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides methods and attributes relating to classes and enrollments.</wsdl:documentation>
     <wsdl:port name="Class_x0020_ServiceSoap" binding="tns:Class_x0020_ServiceSoap">
-      <soap:address location="http://api.mindbodyonline.com/0_5/ClassService.asmx" />
+      <soap:address location="https://api.mindbodyonline.com/0_5/ClassService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>

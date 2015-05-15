@@ -12,7 +12,7 @@ class HomeController < ApplicationController
 	#######################
 	
 	#Create Savon client using default settings
-	http_client = Savon.client("http://api.mindbodyonline.com/0_5/ClassService.asmx?WSDL")
+	http_client = Savon.client("https://api.mindbodyonline.com/0_5/ClassService.asmx?WSDL")
 	
 	#Create request and package it for the call
 	http_request = { 'SourceCredentials' => source_credentials, 'UserCredentials' => user_credentials  }

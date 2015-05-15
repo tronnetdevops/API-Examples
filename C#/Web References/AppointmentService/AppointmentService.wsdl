@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://clients.mindbodyonline.com/api/0_5" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://clients.mindbodyonline.com/api/0_5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://clients.mindbodyonline.com/api/0_5" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://clients.mindbodyonline.com/api/0_5" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
   <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides methods and attributes relating to appointments.</wsdl:documentation>
   <wsdl:types>
     <s:schema elementFormDefault="qualified" targetNamespace="http://clients.mindbodyonline.com/api/0_5">
@@ -97,6 +97,7 @@
       <s:complexType name="MBResult">
         <s:sequence>
           <s:element minOccurs="1" maxOccurs="1" name="Status" type="tns:StatusCode" />
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorCode" type="s:int" />
           <s:element minOccurs="0" maxOccurs="1" name="Message" type="s:string" />
           <s:element minOccurs="1" maxOccurs="1" name="XMLDetail" type="tns:XMLDetailLevel" />
           <s:element minOccurs="1" maxOccurs="1" name="ResultCount" type="s:int" />
@@ -123,6 +124,8 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:ScheduleItem">
             <s:sequence>
+              <s:element minOccurs="0" maxOccurs="1" name="GenderPreference" type="s:string" />
+              <s:element minOccurs="1" maxOccurs="1" name="Duration" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:long" />
               <s:element minOccurs="0" maxOccurs="1" name="Status" type="tns:AppointmentStatus" />
@@ -152,6 +155,7 @@
           <s:element minOccurs="0" maxOccurs="1" name="Site" type="tns:Site" />
           <s:element minOccurs="0" maxOccurs="1" name="Messages" type="tns:ArrayOfString" />
           <s:element minOccurs="0" maxOccurs="1" name="Execute" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Site">
@@ -169,6 +173,9 @@
           <s:element minOccurs="0" maxOccurs="1" name="AcceptsMasterCard" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="AcceptsAmericanExpress" type="s:boolean" />
           <s:element minOccurs="0" maxOccurs="1" name="ContactEmail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ESA" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalWOD" nillable="true" type="s:boolean" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxInclusivePrices" nillable="true" type="s:boolean" />
         </s:sequence>
       </s:complexType>
       <s:complexType name="Resource">
@@ -216,6 +223,7 @@
               <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="ScheduleType" nillable="true" type="tns:ScheduleType" />
+              <s:element minOccurs="1" maxOccurs="1" name="CancelOffset" nillable="true" type="s:int" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -259,6 +267,9 @@
               <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="ForeignZip" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="SortOrder" type="s:int" />
+              <s:element minOccurs="0" maxOccurs="1" name="LoginLocations" type="tns:ArrayOfLocation" />
+              <s:element minOccurs="0" maxOccurs="1" name="MultiLocation" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:long" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
@@ -313,6 +324,9 @@
         <s:complexContent mixed="false">
           <s:extension base="tns:MBObject">
             <s:sequence>
+              <s:element minOccurs="1" maxOccurs="1" name="DefaultTimeLength" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="ProgramID" nillable="true" type="s:int" />
+              <s:element minOccurs="1" maxOccurs="1" name="NumDeducted" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" nillable="true" type="s:int" />
               <s:element minOccurs="0" maxOccurs="1" name="Name" type="s:string" />
@@ -363,6 +377,11 @@
           </s:extension>
         </s:complexContent>
       </s:complexType>
+      <s:complexType name="ArrayOfLocation">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="Location" nillable="true" type="tns:Location" />
+        </s:sequence>
+      </s:complexType>
       <s:complexType name="ClientRelationship">
         <s:complexContent mixed="false">
           <s:extension base="tns:MBObject">
@@ -389,9 +408,16 @@
               <s:element minOccurs="0" maxOccurs="1" name="AppointmentGenderPreference" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="Gender" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="IsCompany" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="Inactive" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="ClientRelationships" type="tns:ArrayOfClientRelationship" />
               <s:element minOccurs="0" maxOccurs="1" name="Reps" type="tns:ArrayOfRep" />
               <s:element minOccurs="0" maxOccurs="1" name="CustomClientFields" type="tns:ArrayOfCustomClientField" />
+              <s:element minOccurs="0" maxOccurs="1" name="LiabilityRelease" nillable="true" type="s:boolean" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoName" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoRelationship" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoPhone" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="EmergencyContactInfoEmail" type="s:string" />
+              <s:element minOccurs="0" maxOccurs="1" name="PromotionalEmailOptIn" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Action" type="tns:ActionCode" />
               <s:element minOccurs="0" maxOccurs="1" name="ID" type="s:string" />
               <s:element minOccurs="0" maxOccurs="1" name="FirstName" type="s:string" />
@@ -527,7 +553,9 @@
               <s:element minOccurs="0" maxOccurs="1" name="UpdateAction" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="Test" nillable="true" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="SendEmail" nillable="true" type="s:boolean" />
+              <s:element minOccurs="1" maxOccurs="1" name="ApplyPayment" nillable="true" type="s:boolean" />
               <s:element minOccurs="0" maxOccurs="1" name="Appointments" type="tns:ArrayOfAppointment" />
+              <s:element minOccurs="1" maxOccurs="1" name="IgnoreDefaultSessionLength" nillable="true" type="s:boolean" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -564,6 +592,8 @@
               <s:element minOccurs="0" maxOccurs="1" name="StaffIDs" type="tns:ArrayOfLong" />
               <s:element minOccurs="1" maxOccurs="1" name="StartDate" nillable="true" type="s:dateTime" />
               <s:element minOccurs="1" maxOccurs="1" name="EndDate" nillable="true" type="s:dateTime" />
+              <s:element minOccurs="1" maxOccurs="1" name="AppointmentID" nillable="true" type="s:long" />
+              <s:element minOccurs="1" maxOccurs="1" name="IgnoreDefaultSessionLength" nillable="true" type="s:boolean" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -653,6 +683,7 @@
               <s:element minOccurs="0" maxOccurs="1" name="UnavailableDescription" type="s:string" />
               <s:element minOccurs="1" maxOccurs="1" name="IsUnavailable" type="s:boolean" />
               <s:element minOccurs="1" maxOccurs="1" name="PublicDisplay" nillable="true" type="tns:AvailabilityDisplay" />
+              <s:element minOccurs="0" maxOccurs="1" name="Execute" type="s:string" />
             </s:sequence>
           </s:extension>
         </s:complexContent>
@@ -823,7 +854,7 @@
   </wsdl:message>
   <wsdl:portType name="Appointment_x0020_ServiceSoap">
     <wsdl:operation name="GetStaffAppointments">
-      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of appointments that a given staff memeber is instructing.</wsdl:documentation>
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Gets a list of appointments that a given staff member is instructing.</wsdl:documentation>
       <wsdl:input message="tns:GetStaffAppointmentsSoapIn" />
       <wsdl:output message="tns:GetStaffAppointmentsSoapOut" />
     </wsdl:operation>
@@ -927,7 +958,7 @@
   <wsdl:service name="Appointment_x0020_Service">
     <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">Provides methods and attributes relating to appointments.</wsdl:documentation>
     <wsdl:port name="Appointment_x0020_ServiceSoap" binding="tns:Appointment_x0020_ServiceSoap">
-      <soap:address location="http://api.mindbodyonline.com/0_5/AppointmentService.asmx" />
+      <soap:address location="https://api.mindbodyonline.com/0_5/AppointmentService.asmx" />
     </wsdl:port>
   </wsdl:service>
 </wsdl:definitions>
