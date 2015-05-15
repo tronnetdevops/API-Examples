@@ -67,13 +67,6 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
-    <None Include="Web References\AppointmentService\AppointmentService.disco" />
-    <None Include="Web References\ClassService\ClassService.disco" />
-    <None Include="Web References\ClientService\ClientService.disco" />
-    <None Include="Web References\FinderService\FinderService.disco" />
-    <None Include="Web References\SaleService\SaleService.disco" />
-    <None Include="Web References\SiteService\SiteService.disco" />
-    <None Include="Web References\StaffService\StaffService.disco" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -155,325 +148,352 @@
     <WebReferences Include="Web References\" />
   </ItemGroup>
   <ItemGroup>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/AppointmentService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\AppointmentService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/AppointmentService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_appointmentservice_Appointment_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/ClassService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ClassService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/ClassService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_classservice_Class_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/ClientService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\ClientService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/ClientService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_clientservice_Client_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/FinderService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\FinderService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/FinderService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_finderservice_Finder_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/SaleService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\SaleService\</RelPath>
-      <UpdateFromURL>https://api.mindbodyonline.com/0_5/SaleService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_saleservice_Sale_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/SiteService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\SiteService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/SiteService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_siteservice_Site_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-    <WebReferenceUrl Include="http://api.mindbodyonline.com/0_5/StaffService.asmx">
-      <UrlBehavior>Dynamic</UrlBehavior>
-      <RelPath>Web References\StaffService\</RelPath>
-      <UpdateFromURL>http://api.mindbodyonline.com/0_5/StaffService.asmx</UpdateFromURL>
-      <ServiceLocationURL>
-      </ServiceLocationURL>
-      <CachedDynamicPropName>
-      </CachedDynamicPropName>
-      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
-      <CachedSettingsPropName>API_Example_mindbodyonline_api_staffservice_Staff_x0020_Service</CachedSettingsPropName>
-    </WebReferenceUrl>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-    <None Include="Web References\AppointmentService\AddOrUpdateAppointmentsResult.datasource">
+    <Content Include="Web References\AppointmentService\AddOrUpdateAppointmentsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\AddOrUpdateAvailabilitiesResult.datasource">
+    </Content>
+    <Content Include="Web References\AppointmentService\AddOrUpdateAvailabilitiesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
+    </Content>
     <None Include="Web References\AppointmentService\AppointmentService.wsdl" />
-    <None Include="Web References\AppointmentService\GetActiveSessionTimesResult.datasource">
+    <Content Include="Web References\AppointmentService\GetActiveSessionTimesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\GetAppointmentOptionsResult.datasource">
+    </Content>
+    <Content Include="Web References\AppointmentService\GetAppointmentOptionsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\GetBookableItemsResult.datasource">
+    </Content>
+    <Content Include="Web References\AppointmentService\GetBookableItemsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\GetScheduleItemsResult.datasource">
+    </Content>
+    <Content Include="Web References\AppointmentService\GetScheduleItemsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\GetStaffAppointmentsResult.datasource">
+    </Content>
+    <Content Include="Web References\AppointmentService\GetStaffAppointmentsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\AppointmentService\Reference.map">
+    </Content>
+    <Content Include="Web References\AppointmentService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ClassService\AddClientsToClassesResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\AddOrUpdateFinderUsersResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\AddClientsToEnrollmentsResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\FinderCheckoutShoppingCartResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
+    </Content>
+    <Content Include="Web References\ClientService\AddArrivalResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\AddClientFormulaNoteResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\AddOrUpdateClientsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\AddOrUpdateContactLogsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\ClientSendUserNewPasswordResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClassService\AddClientsToClassesResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClassService\AddClientsToEnrollmentsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClassService\CancelSingleClassResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\ClassService\ClassService.wsdl" />
-    <None Include="Web References\ClassService\GetClassDescriptionsResult.datasource">
+    <Content Include="Web References\ClassService\GetClassDescriptionsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetClassesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetClassesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetClassSchedulesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetClassSchedulesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetClassVisitsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetClassVisitsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetCoursesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetCoursesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetEnrollmentsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetEnrollmentsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetSemestersResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetSemestersResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\GetWaitlistEntriesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\GetWaitlistEntriesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\Reference.map">
+    </Content>
+    <Content Include="Web References\ClassService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ClassService\RemoveClientsFromClassesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\RemoveClientsFromClassesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\RemoveFromWaitlistResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\RemoveFromWaitlistResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClassService\UpdateClientVisitsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\SubstituteClassTeacherResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\AddArrivalResult.datasource">
+    </Content>
+    <Content Include="Web References\ClassService\UpdateClientVisitsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\AddOrUpdateClientsResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\AddOrUpdateContactLogsResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
+    </Content>
     <None Include="Web References\ClientService\ClientService.wsdl" />
-    <None Include="Web References\ClientService\GetActiveClientMembershipsResult.datasource">
+    <Content Include="Web References\ClientService\DeleteClientFormulaNoteResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientAccountBalancesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetActiveClientMembershipsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientContactLogsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientAccountBalancesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientContractsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientContactLogsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientIndexesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientContractsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientPurchasesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientFormulaNotesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientReferralTypesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientIndexesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientScheduleResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientPurchasesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientServicesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientReferralTypesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientScheduleResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetClientVisitsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientServicesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetContactLogTypesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetCustomClientFieldsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetClientVisitsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\GetRequiredClientFieldsResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\GetContactLogTypesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\Reference.map">
+    </Content>
+    <Content Include="Web References\ClientService\GetCustomClientFieldsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\GetRequiredClientFieldsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\ClientService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\ClientService\UpdateClientServicesResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\UpdateClientServicesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\UploadClientDocumentResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\UploadClientDocumentResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\ClientService\ValidateLoginResult.datasource">
+    </Content>
+    <Content Include="Web References\ClientService\ValidateLoginResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\AddOrUpdateFinderUsersResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\FinderCheckoutShoppingCartResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
+    </Content>
     <None Include="Web References\FinderService\FinderService.wsdl" />
-    <None Include="Web References\FinderService\GetBusinessLocationsWithinRadiusResult.datasource">
+    <Content Include="Web References\FinderService\GetBusinessLocationsWithinRadiusResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\GetClassesWithinRadiusResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\GetClassesWithinRadiusResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\GetFinderUserResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\GetFinderUserResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\GetSessionTypesWithinRadiusResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\GetSessionTypesWithinRadiusResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\FinderService\Reference.map">
+    </Content>
+    <Content Include="Web References\FinderService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
-    <None Include="Web References\FinderService\SendUserNewPasswordResult.datasource">
+    </Content>
+    <Content Include="Web References\FinderService\SendFinderUserNewPasswordResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\CheckoutShoppingCartResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\CheckoutShoppingCartResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetAcceptedCardTypeResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetAcceptedCardTypeResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetItemProgramsResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetCustomPaymentMethodsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetPackagesResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetPackagesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetProductsResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetProductsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetSalesResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetSalesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\GetServicesResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\GetServicesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\Reference.map">
+    </Content>
+    <Content Include="Web References\SaleService\RedeemSpaFinderWellnessCardResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SaleService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
     <None Include="Web References\SaleService\SaleService.wsdl" />
-    <None Include="Web References\SaleService\UpdateProductsResult.datasource">
+    <Content Include="Web References\SaleService\UpdateProductsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SaleService\UpdateServicesResult.datasource">
+    </Content>
+    <Content Include="Web References\SaleService\UpdateServicesResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\AddSiteToCredentialsResult.datasource">
+    </Content>
+    <Content Include="Web References\StaffService\AddOrUpdateStaffResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetActivationCodeResult.datasource">
+    </Content>
+    <Content Include="Web References\StaffService\GetStaffImgURLResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetLocationsResult.datasource">
+    </Content>
+    <Content Include="Web References\StaffService\GetStaffPermissionsResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetProgramsResult.datasource">
+    </Content>
+    <Content Include="Web References\StaffService\GetStaffResult.datasource">
       <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetRelationshipsResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetResourcesResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetSessionTypesResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\GetSitesResult.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\SiteService\Reference.map">
+    </Content>
+    <Content Include="Web References\StaffService\Reference.map">
       <Generator>MSDiscoCodeGenerator</Generator>
       <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
+    </Content>
+    <Content Include="Web References\SiteService\GetActivationCodeResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetLocationsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetProgramsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetRelationshipsResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetResourceScheduleResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetResourcesResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetSessionTypesResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\GetSitesResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
+    <Content Include="Web References\SiteService\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <Content Include="Web References\SiteService\ReserveResourceResult.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </Content>
     <None Include="Web References\SiteService\SiteService.wsdl" />
-    <None Include="Web References\StaffService\AddOrUpdateStaffResult1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\StaffService\GetStaffPermissionsResult1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\StaffService\GetStaffResult1.datasource">
-      <DependentUpon>Reference.map</DependentUpon>
-    </None>
-    <None Include="Web References\StaffService\Reference.map">
-      <Generator>MSDiscoCodeGenerator</Generator>
-      <LastGenOutput>Reference.cs</LastGenOutput>
-    </None>
     <None Include="Web References\StaffService\StaffService.wsdl" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/AppointmentService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\AppointmentService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/AppointmentService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_AppointmentService_Appointment_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/ClassService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ClassService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/ClassService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_ClassService_Class_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/ClientService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\ClientService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/ClientService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_ClientService_Client_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/FinderService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\FinderService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/FinderService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_FinderService_Finder_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/SaleService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SaleService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/SaleService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_SaleService_Sale_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/SiteService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\SiteService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/SiteService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_SiteService_Site_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <WebReferenceUrl Include="https://api.mindbodyonline.com/0_5/StaffService.asmx%3fwsdl">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\StaffService\</RelPath>
+      <UpdateFromURL>https://api.mindbodyonline.com/0_5/StaffService.asmx%3fwsdl</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>API_Example_StaffService_Staff_x0020_Service</CachedSettingsPropName>
+    </WebReferenceUrl>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
