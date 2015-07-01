@@ -42,6 +42,38 @@ class MBClientService extends MBAPIService
 		return $result;
 	}
 	
+	public function GetClientVisits($clientID, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
+	{
+		$additions['ClientID'] = $clientID;
+		$additions['UnpaidsOnly'] = false;
+		
+		/**
+		 * @todo Move this to internal class
+		 */
+		$additions['StartDate'] = '2014-05-10'; /** MOVEO Startdate **/
+		
+		$params = $this->GetMindbodyParams($additions, $this->GetCredentials($credentials), $XMLDetail, $PageSize, $CurrentPage, $Fields);
+		
+		try
+		{
+			$result = $this->client->GetClientVisits($params);
+		}
+		catch (SoapFault $fault)
+		{
+			DebugRequest($this->client);
+			DebugResponse($this->client, $result);
+			echo '</xmp><br/><br/> Error Message : <br/>', $fault->getMessage(); 
+		}
+		
+		if ($this->debug)
+		{
+			DebugRequest($this->client);
+			DebugResponse($this->client, $result);
+		}
+		
+		return $result;
+	}
+	
 	public function AddArrival($client, $location, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
 	{
 		$additions['ClientID'] = $client;
@@ -67,9 +99,13 @@ class MBClientService extends MBAPIService
 		return $result;
 	}
 	
-	public function GetClientServices($clientID, array $programIDs = array(), array $sessionTypeIDs = array(), array $locationIDs = array(), $visitCount = null, $startDate = null, $endDate = null, $ShowActiveOnly = true, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
+	public function GetClientServices($clientID, array $classIDs = array(), array $programIDs = array(), array $sessionTypeIDs = array(), array $locationIDs = array(), $visitCount = null, $startDate = null, $endDate = null, $ShowActiveOnly = true, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
 	{
 		$additions['ClientID'] = $clientID;
+		if (isset($classIDs))
+		{
+			$additions['ClassID'] = $classID;
+		}
 		if (isset($programIDs))
 		{
 			$additions['ProgramIDs'] = $programIDs;
@@ -107,7 +143,8 @@ class MBClientService extends MBAPIService
 		}
 		catch (SoapFault $fault)
 		{
-			DebugResponse($result);
+			DebugRequest($this->client);
+			DebugResponse($this->client, $result);
 			echo '</xmp><br/><br/> Error Message : <br/>', $fault->getMessage(); 
 		}
 		

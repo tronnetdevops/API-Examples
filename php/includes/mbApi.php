@@ -19,12 +19,14 @@ function GetApiNamespace()
 // helper functions
 function toArray($obj)
 {
+	error_log("maybe...");
    if (is_array($obj)) { return $obj; } 
    else { return array($obj); }
 }
 
 function toComplexType($item, $objectName)
 {
+	error_log("well...");
 	return new SoapVar($item, XSD_ANYTYPE, $objectName, GetApiNamespace());
 }
 
