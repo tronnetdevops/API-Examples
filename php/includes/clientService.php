@@ -42,15 +42,11 @@ class MBClientService extends MBAPIService
 		return $result;
 	}
 	
-	public function GetClientVisits($clientID, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
+	public function GetClientVisits($clientID, $startDate, SourceCredentials $credentials = null, $XMLDetail = XMLDetail::Full, $PageSize = NULL, $CurrentPage = NULL, $Fields = NULL)
 	{
 		$additions['ClientID'] = $clientID;
 		$additions['UnpaidsOnly'] = false;
-		
-		/**
-		 * @todo Move this to internal class
-		 */
-		$additions['StartDate'] = '2014-05-10'; /** MOVEO Startdate **/
+		$additions['StartDate'] = $startDate;  
 		
 		$params = $this->GetMindbodyParams($additions, $this->GetCredentials($credentials), $XMLDetail, $PageSize, $CurrentPage, $Fields);
 		
