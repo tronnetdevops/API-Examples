@@ -18,6 +18,33 @@ class MBClientService extends MBAPIService
 		$this->client->__setLocation($endpointUrl);
 	}
 	
+	public function SendUserNewPassword($email, $fname, $lname, $PageSize = null, $CurrentPage = null, $XMLDetail = XMLDetail::Full, $Fields = null, SourceCredentials $credentials = null)
+	{
+		$additions['UserEmail'] = $email;
+		$additions['UserFirstName'] = $fname;
+		$additions['UserLastName'] = $lname;
+		
+		$params = $this->GetMindbodyParams($additions, $this->GetCredentials($credentials), $XMLDetail, $PageSize, $CurrentPage, $Fields);
+		
+		try
+		{
+			$result = $this->client->SendUserNewPassword($params);
+		}
+		catch (SoapFault $fault)
+		{
+			DebugResponse($result);
+			echo '</xmp><br/><br/> Error Message : <br/>', $fault->getMessage(); 
+		}
+		
+		if ($this->debug)
+		{
+			DebugRequest($this->client);
+			DebugResponse($this->client, $result);
+		}
+		
+		return $result;
+	}
+	
 	public function GetClients(array $clientIDs, $PageSize = null, $CurrentPage = null, $XMLDetail = XMLDetail::Full, $Fields = null, SourceCredentials $credentials = null)
 	{
 		$additions['ClientIDs'] = $clientIDs;
